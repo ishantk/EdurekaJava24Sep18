@@ -44,6 +44,9 @@ public class DOMParser {
 				System.out.println("DEPARTMENT\t\t"+element.getElementsByTagName("dept").item(0).getTextContent());
 				
 				System.out.println();
+				
+				// H.W:
+				// Create Employee Object and add it to ArrayList/HashMap
 			}
 			
 			

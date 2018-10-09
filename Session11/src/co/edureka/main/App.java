@@ -26,7 +26,8 @@ public class App {
 			System.out.println();
 		}*/
 		
-		helper.executeProcedure(emp1);
+		//helper.executeProcedure(emp1);
+		helper.processBatch();
 		
 		helper.closeConnection();
 		

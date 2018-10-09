@@ -5,6 +5,7 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 
@@ -202,12 +203,43 @@ public class JDBCHelper {
 		}
 	}
 	
+	public void processBatch(){
+		try {
+			
+			String sql1 = "delete from Employee where id = 4";
+			String sql2 = "update Employee set ename = 'George Gim', phone='+91 90909 90909' where id = 7"; // wrong column name
+			
+			con.setAutoCommit(false);
+			
+			// Batch Processing
+			stmt = con.createStatement();
+			stmt.addBatch(sql1);
+			stmt.addBatch(sql2);
+			
+			stmt.executeBatch();
+			
+			// Make Batch Processing a Transaction
+			// It will ensure Atomicity !! i.e. All statements should execute !! None should fail !!
+			con.commit(); 
+			System.out.println(">> Batch Processed");
+		} catch (Exception e) {
+			try {
+				con.rollback();
+				System.out.println(">> Connection Rollbacked");
+			} catch (SQLException e1) {
+				e1.printStackTrace();
+			}
+			
+			System.out.println(">> Some Exception: "+e);
+		}
+	}
+	
 	// 5. Close the Connection
 	public void closeConnection(){
 		try {
 			//stmt.close();
 			//pStmt.close();
-			cStmt.close();
+			//cStmt.close();
 			con.close();
 			System.out.println(">> Connection Closed");
 		} catch (Exception e) {
