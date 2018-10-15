@@ -34,6 +34,7 @@ public class App {
 		Configuration config = null;
 		SessionFactory factoy = null;
 		Session session = null;
+		Session session2 = null;
 		Transaction transaction = null;
 		
 		try {
@@ -44,6 +45,7 @@ public class App {
 			factoy = config.buildSessionFactory(); // Obtain SessionFactory from Configuration
 			
 			session = factoy.openSession(); // Open Session shall create a connection to the DB with mentioned details. 
+			//session2 = factoy.openSession(); // Multiple Sessions 
 			
 			transaction = session.beginTransaction();
 			
@@ -94,10 +96,24 @@ public class App {
 			//6. Batch Operation
 			
 			// 100 Student Objects are saved in session object whil will be processed as a batch when we will commit transaction
-			for(int i=1;i<=100;i++){ // 1to 100 -> 100 times
+			/*for(int i=1;i<=100;i++){ // 1to 100 -> 100 times
 				Employee emp = new Employee(0, "Employee"+i, "employee"+i+"@example.com", 20000+i, "SE");
 				session.save(emp);
-			}
+			}*/
+			
+			Employee e1 = (Employee)session.get(Employee.class, 1);
+			Employee e2 = (Employee)session.get(Employee.class, 2);
+			
+			System.out.println(e1);
+			System.out.println(e2);
+			
+			System.out.println("==Re Reading same Objects within the same session==");
+			
+			Employee e3 = (Employee)session.get(Employee.class, 1);
+			Employee e4 = (Employee)session.get(Employee.class, 2);
+			
+			System.out.println(e3);
+			System.out.println(e4);
 			
 			transaction.commit();
 			

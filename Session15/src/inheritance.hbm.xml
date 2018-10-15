@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+ "-//Hibernate/Hibernate Mapping DTD//EN"
+ "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd"> 
+
+<hibernate-mapping>
+   
+   <class name="co.edureka.model.Phone" table="PHONES" discriminator-value="PHONE">
+      
+      <id name="pid" column="PID">
+         <generator class="increment"/>
+      </id>
+      <discriminator column="TYPE" type="string"/>
+      <property name="name" column="NAME" />
+      <property name="companyName" column="COMPANYNAME" />
+      
+      <subclass name="co.edureka.model.SmartPhone" discriminator-value="SMARTPHONE">
+      	 <property name="os" column="OS" />
+      	 <property name="ram" column="RAM" />
+      	 <property name="storage" column="STORAGE" />
+      	   
+      	  <subclass name="co.edureka.model.AndroidPhone" discriminator-value="ANDROIDPHONE">
+      	  	<property name="version" column="VERSION" />
+      	 	<property name="versionName" column="VERSIONNAME" />
+      	  </subclass> 
+      
+      </subclass>
+      
+   </class>
+   
+</hibernate-mapping>
