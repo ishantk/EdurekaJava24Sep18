@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:context="http://www.springframework.org/schema/context"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans
+    http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+    http://www.springframework.org/schema/context
+    http://www.springframework.org/schema/context/spring-context-3.0.xsd">
+    
+  <!--  <bean id="conID1" class="co.edureka.bean.DBConnection" scope="prototype"> -->
+   <!-- <bean id="conID1" class="co.edureka.bean.DBConnection" init-method="myInit" destroy-method="myDestroy">
+       <property name="url" value="jdbc:mysql://localhost/school"/>
+       <property name="userName" value="john"/>
+       <property name="password" value="school123"/>
+       <property name="driver" value="com.mysql.jdbc.Driver"/>
+   </bean>
+   
+   <bean class="co.edureka.bean.MyProcessor"/> -->
+   
+   <!-- <bean id="conID2" class="co.edureka.bean.DBConnection">
+       <property name="url" value="jdbc:mysql://localhost/company"/>
+       <property name="userName" value="jennie"/>
+       <property name="password" value="comp123"/>
+       <property name="driver" value="com.mysql.jdbc.Driver"/>
+   </bean> -->
+   
+   <!-- <bean id="fRef" class="co.edureka.bean.Father">
+       <property name="fname" value="John"/>
+       <property name="lname" value="Watson"/>
+       <property name="wealth" value="200000"/>
+   </bean>
+   
+   <bean id="cRef" class="co.edureka.bean.Child" parent="fRef">
+       <property name="fname" value="Jennie"/>
+       <property name="companyName" value="Edureka"/>
+       <property name="vehicles" value="2"/>
+   </bean> -->
+   
+    <bean id="aRef" class="co.edureka.bean.Address">
+       <property name="adrsLine" value="Pristine Magnum"/>
+       <property name="city" value="Bengaluru"/>
+   </bean>
+   
+   <bean id="pRef" class="co.edureka.bean.Person">
+       <property name="name" value="Mike Watson"/>
+       <property name="email" value="mike.w@example.com"/>
+       <!-- <constructor-arg ref="aRef"/> --> <!-- Constructor Injection -->
+        <property name="address" ref="aRef"/> <!-- Setter Injection -->
+        <property name="certificates">        <!-- Collection Injection -->
+        	<list>
+        		<value>AWS</value>
+        		<value>CCNA</value>
+        		<value>OCJP</value>
+        	</list>
+        </property>
+        
+   </bean>
+
+</beans>
