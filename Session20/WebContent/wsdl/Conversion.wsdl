@@ -1,0 +1,272 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions targetNamespace="http://ws.edureka.co" xmlns:apachesoap="http://xml.apache.org/xml-soap" xmlns:impl="http://ws.edureka.co" xmlns:intf="http://ws.edureka.co" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<!--WSDL created by Apache Axis version: 1.4
+Built on Apr 22, 2006 (06:55:48 PDT)-->
+ <wsdl:types>
+  <schema elementFormDefault="qualified" targetNamespace="http://ws.edureka.co" xmlns="http://www.w3.org/2001/XMLSchema">
+   <element name="sayHello">
+    <complexType>
+     <sequence>
+      <element name="name" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="sayHelloResponse">
+    <complexType>
+     <sequence>
+      <element name="sayHelloReturn" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="mtrsToCms">
+    <complexType>
+     <sequence>
+      <element name="mtrs" type="xsd:int"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="mtrsToCmsResponse">
+    <complexType>
+     <sequence>
+      <element name="mtrsToCmsReturn" type="xsd:int"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="feetToInches">
+    <complexType>
+     <sequence>
+      <element name="feet" type="xsd:int"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="feetToInchesResponse">
+    <complexType>
+     <sequence>
+      <element name="feetToInchesReturn" type="xsd:int"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="registerUser">
+    <complexType>
+     <sequence>
+      <element name="name" type="xsd:string"/>
+      <element name="phone" type="xsd:string"/>
+      <element name="email" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="registerUserResponse">
+    <complexType>
+     <sequence>
+      <element name="registerUserReturn" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+  </schema>
+ </wsdl:types>
+
+   <wsdl:message name="feetToInchesRequest">
+
+      <wsdl:part element="impl:feetToInches" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="mtrsToCmsResponse">
+
+      <wsdl:part element="impl:mtrsToCmsResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="registerUserRequest">
+
+      <wsdl:part element="impl:registerUser" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="sayHelloRequest">
+
+      <wsdl:part element="impl:sayHello" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="sayHelloResponse">
+
+      <wsdl:part element="impl:sayHelloResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="feetToInchesResponse">
+
+      <wsdl:part element="impl:feetToInchesResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="registerUserResponse">
+
+      <wsdl:part element="impl:registerUserResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="mtrsToCmsRequest">
+
+      <wsdl:part element="impl:mtrsToCms" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:portType name="Conversion">
+
+      <wsdl:operation name="sayHello">
+
+         <wsdl:input message="impl:sayHelloRequest" name="sayHelloRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:sayHelloResponse" name="sayHelloResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="mtrsToCms">
+
+         <wsdl:input message="impl:mtrsToCmsRequest" name="mtrsToCmsRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:mtrsToCmsResponse" name="mtrsToCmsResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="feetToInches">
+
+         <wsdl:input message="impl:feetToInchesRequest" name="feetToInchesRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:feetToInchesResponse" name="feetToInchesResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="registerUser">
+
+         <wsdl:input message="impl:registerUserRequest" name="registerUserRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:registerUserResponse" name="registerUserResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+   </wsdl:portType>
+
+   <wsdl:binding name="ConversionSoapBinding" type="impl:Conversion">
+
+      <wsdlsoap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+
+      <wsdl:operation name="sayHello">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="sayHelloRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="sayHelloResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="mtrsToCms">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="mtrsToCmsRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="mtrsToCmsResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="feetToInches">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="feetToInchesRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="feetToInchesResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="registerUser">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="registerUserRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="registerUserResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+   </wsdl:binding>
+
+   <wsdl:service name="ConversionService">
+
+      <wsdl:port binding="impl:ConversionSoapBinding" name="Conversion">
+
+         <wsdlsoap:address location="http://localhost:8080/Session20/services/Conversion"/>
+
+      </wsdl:port>
+
+   </wsdl:service>
+
+</wsdl:definitions>
